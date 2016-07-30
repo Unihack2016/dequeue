@@ -49,38 +49,14 @@
 			</thead>
 
 			<tbody>
-				<pre>{{ queueitems | json }}</pre>
-
-				<tr>
-					<td>Nick</td>
-					<td>3</td>
-					<td>12</td>
+				<tr ng-repeat="queueItem in queueItems">
+					<td>{{queueItem.name}}</td>
+					<td>{{queueItem.number}}</td>
+					<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">{{duration}}</td>
 					<td><a>Update</a> | <a>Cancel</a></td>
 				</tr>
-
-				<tr>
-					<td>Vatsalya</td>
-					<td>6</td>
-					<td>20</td>
-					<td><a>Update</a> | <a>Cancel</a></td>
-				</tr>
-
-				<tr>
-					<td>Vince</td>
-					<td>2</td>
-					<td>7</td>
-					<td><a>Update</a> | <a>Cancel</a></td>
-				</tr>
-
-				<tr>
-					<td>Arvin</td>
-					<td>4</td>
-					<td>15</td>
-					<td><a>Update</a> | <a>Cancel</a></td>
-				</tr>
-
 			</tbody>
-			
+
 		</table>
 	</div>
 </div>
@@ -98,7 +74,7 @@ function decrementCustomerOne()
 		var value = parseInt(document.getElementById('customer').value, 10);
 		value--;
 		if (value > 0) {
-			document.getElementById('customer').value = value;	
+			document.getElementById('customer').value = value;
 		}
 	}
 
@@ -114,7 +90,7 @@ function decrementWaitOne()
 		var value = parseInt(document.getElementById('wait').value, 10);
 		value--;
 		if (value > 0) {
-			document.getElementById('wait').value = value;	
+			document.getElementById('wait').value = value;
 		}
 	}
 
@@ -130,7 +106,7 @@ function decrementWaitTen()
 		var value = parseInt(document.getElementById('wait').value, 10);
 		value -= 10;
 		if (value > 0) {
-			document.getElementById('wait').value = value;	
+			document.getElementById('wait').value = value;
 		}
 	}
 </script>
