@@ -1,10 +1,14 @@
 <div class="container-fluid" id="kiosk-container">
 	<div class="row" id="dashboard-header">
 			<div class="col-md-4">
-				<h2>Kiosk</h2>
+				<h3>Kiosk</h3>
 				<h1>Hi, <strong>Gordon</strong>!</h1>
+				<h3 style="margin-top:-5px;">Burger Edge</h3>
 			</div>
-			<div class="col-md-4 col-md-offset-4" style="text-align:right;">
+			<div class="col-md-4" style="text-align:center;">
+				<img src="images/burger-logo.png" alt="" />
+			</div>
+			<div class="col-md-4" style="text-align:right;">
 				<h2 id="current-date"></h2>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn modal-toggler" data-toggle="modal" data-target="#createRequestModal">
@@ -26,28 +30,37 @@
 	        <h4 class="modal-title" id="myModalLabel">Wait Request</h4>
 	      </div>
 	      <div class="modal-body">
-					<div>
-						<label for="name">Name</label>
-						<input type="text" id="name" value="" ng-model="customer.name"/>
-					</div>
 
-					<div>
-						<input type="button" onclick="decrementCustomerOne()" value="-" />
-						<input type="text" id="customer" value="1"/>
-						<input type="button" onclick="incrementCustomerOne()" value="+" />
-					</div>
+					<form class="" action="index.html" method="post">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<br>
+							<input type="text" id="name" placeholder="Enter customer name" ng-model="customer.name"/>
+						</div>
 
-				<br>
+						<div class="form-group">
+							<label for="numCustomer">Number of customers</label>
+							<br>
+							<input type="button" onclick="decrementCustomerOne()" value="-" />
+							<input type="text" id="customer" value="1" name="numCustomer"/>
+							<input type="button" onclick="incrementCustomerOne()" value="+" />
+						</div>
 
-					<div>
-						<input type="button" onclick="decrementWaitTen()" value="- 10" />
-						<input type="button" onclick="decrementWaitOne()" value="- 1" />
-						<input type="text" id="wait" value="10"/>
-						<input type="button" onclick="incrementWaitOne()" value="+ 1" />
-						<input type="button" onclick="incrementWaitTen()" value="+ 10" />
-					</div>
+
+						<div class="form-group">
+							<label for="wait">Wait time (minutes)</label>
+							<br>
+							<input type="button" onclick="decrementWaitTen()" value="- 10" />
+							<input type="button" onclick="decrementWaitOne()" value="- 1" />
+							<input type="text" id="wait" value="10" name="wait"/>
+							<input type="button" onclick="incrementWaitOne()" value="+ 1" />
+							<input type="button" onclick="incrementWaitTen()" value="+ 10" />
+						</div>
+					</form>
+
+
 	      </div>
-	      <div class="modal-footer">
+	      <div class="modal-footer" style="text-align: center;">
 					<button ng-click="addQueueItem()" ng-disabled="form.$invalid || vm.dataLoading" class="btn" data-dismiss="modal">Create Request</button>
 	      </div>
 	    </div>
@@ -68,8 +81,8 @@
 					<th>Name</th>
 					<th>People</th>
 					<th>Wait Time</th>
+					<th>QR Code</th>
 					<th>Actions</th>
-					<th>Code</th>
 				</thead>
 
 				<tbody>
