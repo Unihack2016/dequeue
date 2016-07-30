@@ -5,7 +5,7 @@
 
 angular.module('dequeApp')
   .controller('DurationCtrl', function ($scope, $timeout) {
-    $scope.duration  = "";
+    $scope.duration  = "Tick tock...";
     $scope.tickInterval = 1000;
 
     $scope.init = function (startTime, endTime) {
