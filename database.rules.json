@@ -1,0 +1,7 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+    // TODO: Change the above rules to use authentication https://firebase.google.com/docs/database/security/quickstart
+  }
+}
