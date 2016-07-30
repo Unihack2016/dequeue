@@ -6,7 +6,13 @@ $normal-font-size: 12pt;
 $green: #10a28d;
 
 #kiosk-container{
-  font-family: $normal-font-size;
+  table{
+    th, td{
+      text-align: center;
+      font-size: 1.2 * $normal-font-size;
+    }
+  }
+
 
   #dashboard-header{
       background-image: url("../images/dashboard-header.jpg");
