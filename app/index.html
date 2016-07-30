@@ -41,7 +41,7 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li><a ng-href="#/login">Restaurant Login</a></li>
+              <li ng-hide="firebase.User"><a ng-href="#/login">Restaurant Login</a></li>
             </ul>
           </div>
         </div>
@@ -55,7 +55,7 @@
     <div class="footer">
       <div class="container-fluid">
         <p>FROM THE DEQUEUE TEAM</p>
-        <img src="images/unihack-logo.png" alt="Unihack logo" />
+        <img src="images/unihack-logo.png" alt="Unihack logo" style="width: 70px;"/>
       </div>
     </div>
 

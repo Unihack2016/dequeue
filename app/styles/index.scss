@@ -84,6 +84,44 @@ body {
   }
 }
 
+#login-container{
+  padding: 100px 0;
+  h2{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .form-group, .form-actions{
+    margin-top: 20px;
+    label{
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      & > input {
+        border-color: #5eebc0;
+      }
+
+      & > label{
+        transform: scale(1.1);
+        color: #5eebc0;
+      }
+    }
+  }
+  .form-actions{
+    text-align: center;
+    button{
+      border: 2px solid;
+      border-radius: 3px;
+      padding: 10px 15px;
+      transition: all 0.3s ease-in-out;
+      background: none;
+      &:hover{
+        color: #5eebc0;
+      }
+    }
+  }
+}
+
 .content{
   .jumbotron{
     margin-bottom: 0px;
@@ -139,7 +177,7 @@ body {
 }
 /* Custom page footer */
 .footer {
-  padding: 40px 0;
+  padding: 20px 0;
   color: white;
   border-top: 1px solid #e5e5e5;
   background-color: #2B3442;
