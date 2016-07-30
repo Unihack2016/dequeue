@@ -1,13 +1,21 @@
 <h1>Kiosk</h1>
 
 <div class="">
-	<form>
+	<form name="form" ng-submit="vm.newRequest()" role="form">
+
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" value=""/>
+		</div>
+
 		<div>
 			<input type="button" onclick="decrementCustomerOne()" value="-" />
 			<input type="text" id="customer" value="1"/>
 			<input type="button" onclick="incrementCustomerOne()" value="+" />
 		</div>
+
 	<br>
+
 		<div>
 			<input type="button" onclick="decrementWaitTen()" value="- 10" />
 			<input type="button" onclick="decrementWaitOne()" value="- 1" />
@@ -15,6 +23,10 @@
 			<input type="button" onclick="incrementWaitOne()" value="+ 1" />
 			<input type="button" onclick="incrementWaitTen()" value="+ 10" />
 		</div>
+
+	<br>
+
+		<button ng-click="newRequest()" ng-disabled="form.$invalid || vm.dataLoading" class="btn">Create Request</button>
 	</form>
 </div>
 
@@ -37,6 +49,8 @@
 			</thead>
 
 			<tbody>
+				<pre>{{ queueitems | json }}</pre>
+
 				<tr>
 					<td>Nick</td>
 					<td>3</td>
