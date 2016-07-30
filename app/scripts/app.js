@@ -37,10 +37,11 @@ angular
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard',
         resolve: {
-          auth: ["$q", "$location", function($q, $location) {
+          auth: ["$q", "$location", "$firebaseAuth", function($q, $location, $firebaseAuth) {
+            var ref = $firebaseAuth();
             var deferred = $q.defer();
             deferred.resolve();
-            if (localStorage.getItem("user")) {
+            if (ref.$getAuth()) {
               return deferred.promise;
             } else {
               return $location.path('/login');
@@ -51,7 +52,7 @@ angular
       .when('/logout', {
         templateUrl: 'views/main.html',
         controller: 'LogoutCtrl',
-        controllerAs: 'logout',
+        controllerAs: 'logout'
       })
       .otherwise({
         redirectTo: '/'
