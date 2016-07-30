@@ -22,8 +22,13 @@ body {
   border-radius: 0px;
   font-family: 'Montserrat', sans-serif;
   div.content.container-fluid{
+    margin-left: inherit;
+    margin-right: inherit;
     padding: inherit;
   }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -129,7 +134,9 @@ body {
     }
   }
 }
-
+#page-content{
+  flex: 1;
+}
 /* Custom page footer */
 .footer {
   padding: 40px 0;
