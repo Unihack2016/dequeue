@@ -5,10 +5,33 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 $normal-font-size: 12pt;
 $green: #10a28d;
 
-#queue-list {
-  h1 {
-    text-align: center;
+#kiosk-container{
+
+  #dashboard-header{
+      background-color: $green;
+      color: white;
+      padding: 20px 100px;
   }
+
+  #queue-list {
+    h1 {
+      text-align: center;
+    }
+  }
+
+  button.modal-toggler{
+    border: 2px solid;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 10px 30px;
+    transition: all 0.3s ease-in-out;
+    background: none;
+    font-size: 1.2 * $normal-font-size;
+    &:hover{
+      color: #5eebc0;
+    }
+  }
+
 }
 
 .browsehappy {
@@ -92,9 +115,17 @@ body {
   }
   .form-group, .form-actions{
     margin-top: 20px;
+
     label{
       transition: transform 0.3s ease-in-out;
-      font-size: $normal-font-size;
+    }
+
+    label, button, input{
+      font-size: 1.2 * $normal-font-size;
+    }
+
+    input{
+      padding: 25px 20px;
     }
 
     &:hover {
@@ -113,7 +144,7 @@ body {
     button{
       border: 2px solid;
       border-radius: 3px;
-      padding: 10px 15px;
+      padding: 10px 30px;
       transition: all 0.3s ease-in-out;
       background: none;
       &:hover{
