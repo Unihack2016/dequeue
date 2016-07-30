@@ -1,69 +1,93 @@
-<h1>Kiosk</h1>
-
-<div class="">
-	<form name="form" ng-submit="vm.newRequest()" role="form">
-
-		<div>
-			<label for="name">Name</label>
-			<input type="text" id="name" value="" ng-model="customer.name"/>
-		</div>
-
-		<div>
-			<input type="button" onclick="decrementCustomerOne()" value="-" />
-			<input type="text" id="customer" value="1"/>
-			<input type="button" onclick="incrementCustomerOne()" value="+" />
-		</div>
-
-	<br>
-
-		<div>
-			<input type="button" onclick="decrementWaitTen()" value="- 10" />
-			<input type="button" onclick="decrementWaitOne()" value="- 1" />
-			<input type="text" id="wait" value="10"/>
-			<input type="button" onclick="incrementWaitOne()" value="+ 1" />
-			<input type="button" onclick="incrementWaitTen()" value="+ 10" />
-		</div>
-
-	<br>
-
-		<button ng-click="addQueueItem()" ng-disabled="form.$invalid || vm.dataLoading" class="btn">Create Request</button>
-	</form>
-</div>
-
-<div class="row">
-	<div id="queue-list" class="col-md-10 col-md-offset-1">
-		<h1>Request Queue</h1>
+<div class="container-fluid" id="kiosk-container">
+	<div class="row" id="dashboard-header">
+			<div class="col-md-4">
+				<h2>Kiosk</h2>
+				<h1>Hi, <strong>Gordon</strong>!</h1>
+			</div>
+			<div class="col-md-4 col-md-offset-4" style="text-align:right;">
+				<h2 id="current-date"></h2>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn modal-toggler" data-toggle="modal" data-target="#createRequestModal">
+					Create Wait Request
+				</button>
+			</div>
+			<script type="text/javascript">
+				var d = new Date();
+				document.getElementById("current-date").innerHTML = d.toDateString();
+			</script>
 	</div>
-</div>
 
-<div class="row">
+	<!-- Modal -->
+	<div class="modal fade" id="createRequestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Wait Request</h4>
+	      </div>
+	      <div class="modal-body">
+					<div>
+						<label for="name">Name</label>
+						<input type="text" id="name" value="" ng-model="customer.name"/>
+					</div>
 
-	<div class="col-md-10 col-md-offset-1">
-		<table class="table table-hover">
+					<div>
+						<input type="button" onclick="decrementCustomerOne()" value="-" />
+						<input type="text" id="customer" value="1"/>
+						<input type="button" onclick="incrementCustomerOne()" value="+" />
+					</div>
 
-			<thead>
-				<th>Name</th>
-				<th>People</th>
-				<th>Wait Time</th>
-				<th>Actions</th>
-				<th>Code</th>
-			</thead>
+				<br>
 
-			<tbody>
-				<tr ng-repeat="queueItem in queueItems">
-					<td>{{queueItem.name}}</td>
-					<td>{{queueItem.number}}</td>
-					<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">
-						{{duration}}
-					</td>
-					<td ng-controller="QRCtrl" ng-init="init(queueItem.$id)">
-						http://goo.gl/AQeRl9 | <img src="{{QRUrl}}" alt="" />
-					</td>
-					<td><a>Update</a> | <a>Cancel</a></td>
-				</tr>
-			</tbody>
+					<div>
+						<input type="button" onclick="decrementWaitTen()" value="- 10" />
+						<input type="button" onclick="decrementWaitOne()" value="- 1" />
+						<input type="text" id="wait" value="10"/>
+						<input type="button" onclick="incrementWaitOne()" value="+ 1" />
+						<input type="button" onclick="incrementWaitTen()" value="+ 10" />
+					</div>
+	      </div>
+	      <div class="modal-footer">
+					<button ng-click="addQueueItem()" ng-disabled="form.$invalid || vm.dataLoading" class="btn" data-dismiss="modal">Create Request</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-		</table>
+	<div class="row" style="margin: 30px 0px;">
+		<div id="queue-list" class="col-md-10 col-md-offset-1">
+			<h1>Waiting List</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<table class="table table-hover">
+
+				<thead>
+					<th>Name</th>
+					<th>People</th>
+					<th>Wait Time</th>
+					<th>Actions</th>
+					<th>Code</th>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="queueItem in queueItems">
+						<td>{{queueItem.name}}</td>
+						<td>{{queueItem.number}}</td>
+						<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">
+							{{duration}}
+						</td>
+						<td ng-controller="QRCtrl" ng-init="init(queueItem.$id)">
+							http://goo.gl/AQeRl9 | <img src="{{QRUrl}}" alt="" />
+						</td>
+						<td><a>Update</a> | <a>Cancel</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
 	</div>
 </div>
 
