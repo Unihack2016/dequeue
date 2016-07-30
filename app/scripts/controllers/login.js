@@ -18,7 +18,7 @@ angular.module('dequeApp')
         auth.$signInWithEmailAndPassword($scope.vm.username, $scope.vm.password).then(function (firebaseUser) {
           $scope.firebaseUser = firebaseUser;
           localStorage.setItem('user', firebaseUser.u);
-          $location.path( "/" );
+          $location.path( "/dashboard" );
         }).catch(function (error) {
           $scope.error = error;
         });

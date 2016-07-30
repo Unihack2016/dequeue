@@ -49,7 +49,9 @@ angular
         }
       })
       .when('/logout', {
-        controller: 'LogoutCtrl'
+        templateUrl: 'views/main.html',
+        controller: 'LogoutCtrl',
+        controllerAs: 'logout',
       })
       .otherwise({
         redirectTo: '/'
