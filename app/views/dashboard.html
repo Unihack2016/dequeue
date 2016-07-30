@@ -46,6 +46,7 @@
 				<th>People</th>
 				<th>Wait Time</th>
 				<th>Actions</th>
+				<th>Code</th>
 			</thead>
 
 			<tbody>
@@ -54,6 +55,9 @@
 					<td>{{queueItem.number}}</td>
 					<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">
 						{{duration}}
+					</td>
+					<td ng-controller="QRCtrl" ng-init="init(queueItem.$id)">
+						http://goo.gl/AQeRl9 | <img src="{{QRUrl}}" alt="" />
 					</td>
 					<td><a>Update</a> | <a>Cancel</a></td>
 				</tr>
