@@ -2,7 +2,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-$normal-font-size: 14pt;
+$normal-font-size: 12pt;
+$green: #10a28d;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -33,6 +34,9 @@ body {
   > .navbar{
     margin-bottom: 0px;
     border-width: 0px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .navbar-brand{
       padding-left:30px;
@@ -50,6 +54,15 @@ body {
   .navbar-nav{
     font-size: $normal-font-size;
     margin-top: 12px;
+    li a {
+      border: 2px solid;
+      border-radius: 3px;
+      padding: 10px 15px;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        color: #5eebc0;
+      }
+    }
   }
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -61,16 +74,20 @@ body {
 }
 
 .content{
-  .jumbotron#people-queue{
+  .jumbotron{
     margin-bottom: 0px;
     border-radius: 0px;
+    height: 560px;
+    h2{
+      font-size: 4em;
+    }
+  }
+  .jumbotron#people-queue{
     background: {
       image: url("../images/people-queue-banner.jpg");
       size: cover;
       repeat: no-repeat;
     }
-    height: 560px;
-
     .slogan{
       color: white;
       float: left;
@@ -79,8 +96,29 @@ body {
       h1{
         font-size: 6em;
       }
-      h2{
-        font-size: 4em;
+    }
+  }
+
+  .jumbotron#phone-demo{
+    color: white;
+    overflow: hidden;
+
+    background: {
+      image: url("../images/wallpaper-banner2.jpg");
+      size: cover;
+      repeat: no-repeat;
+    }
+    .col-md-8{
+      img{
+        width: 90%;
+      }
+    }
+    .info{
+      padding-top: 20px;
+      text-align: left;
+      p{
+        margin-top: 50px;
+        font-size: 2 * $normal-font-size;
       }
     }
   }
@@ -88,9 +126,13 @@ body {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
+  padding: 40px 0;
+  color: white;
   border-top: 1px solid #e5e5e5;
+  background-color: #2B3442;
+  border-width: 0px;
+  font-weight: lighter;
+  text-align: center;
 }
 
 .container-narrow > hr {
