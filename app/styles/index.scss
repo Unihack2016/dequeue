@@ -4,6 +4,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 $normal-font-size: 14pt;
 
+#queue-list {
+  h1 {
+    text-align: center;
+  }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
