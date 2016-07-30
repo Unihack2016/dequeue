@@ -49,7 +49,7 @@
 			</thead>
 
 			<tbody>
-				<tr ng-repeat="queueItem in queueItems">
+				<tr ng-repeat="queueItem in queueItems" ng-show="queueItem.endtime > now ">
 					<td>{{queueItem.name}}</td>
 					<td>{{queueItem.number}}</td>
 					<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">{{duration}}</td>
