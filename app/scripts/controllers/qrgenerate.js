@@ -3,26 +3,16 @@
  */
 'use strict';
 
-
 angular.module('dequeApp')
-  .controller('DashboardCtrl', function ($http) {
+  .controller('QRCtrl', function($scope, $http){
 
-    // TODO: Integrate into the add request button
-    $('queueRequest').onclick( function() {
-      // TODO: Get the unique URL generated from a firebase push, item ID. {restaurant} and {insertItemIDhere}
-      $http.post('https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBUNUyh_GhchatLF_Zrh3KPipxkmCaJSv0',
-        {"longUrl": 'https://deque.firebaseapp.com/{restaurant}/{insertItemIDhere}'}).then(
-        function successCallback(response) {
-          console.log(response);
-          // TODO: Use these URLs to change the actual view
-          console.log(response.data.id);
-          console.log(response.data.id + ".qr");
-        },
-        function errorCallback(response) {
-          // drop
-          console.log("Error shortening URL with HTTP POST");
-          console.log(response);
-        });
-    })
+    var getTinyAndQR = function(){
+      var url = "http://api.qrserver.com/v1/create-qr-code/?data=http://10.25.129.250:9001/%23/" + $scope.key + "&size=150x150";
+      $scope.QRUrl = url;
+    }
 
+    $scope.init = function(key){
+      $scope.key = key;
+      getTinyAndQR();
+    };
   });
