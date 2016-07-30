@@ -8,7 +8,7 @@
  * Controller of the dequeApp
  */
 angular.module('dequeApp')
-  .controller('LoginCtrl', ["$scope", "$firebaseAuth", function ($scope, $firebaseAuth) {
+  .controller('LoginCtrl', ["$scope","$location" ,"$firebaseAuth", function ($scope,$location, $firebaseAuth) {
       var auth = $firebaseAuth();
 
       $scope.signIn = function () {
@@ -17,6 +17,8 @@ angular.module('dequeApp')
 
         auth.$signInWithEmailAndPassword($scope.vm.username, $scope.vm.password).then(function (firebaseUser) {
           $scope.firebaseUser = firebaseUser;
+          localStorage.setItem('user', firebaseUser.u);
+          $location.path( "/" );
         }).catch(function (error) {
           $scope.error = error;
         });
