@@ -94,6 +94,7 @@ body {
     margin-top: 20px;
     label{
       transition: transform 0.3s ease-in-out;
+      font-size: $normal-font-size;
     }
 
     &:hover {
@@ -164,10 +165,10 @@ body {
     }
     .info{
       color: #606060;
-      text-align: left;
+      text-align: right;
       p{
-        margin-top: 50px;
-        font-size: 2 * $normal-font-size;
+        margin-top: 60px;
+        font-size: 1.5 * $normal-font-size;
       }
     }
   }
