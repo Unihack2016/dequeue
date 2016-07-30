@@ -2,8 +2,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
 $normal-font-size: 14pt;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -32,6 +32,7 @@ body {
   border-bottom: 1px solid #e5e5e5;
   > .navbar{
     margin-bottom: 0px;
+    border-width: 0px;
   }
   .navbar-brand{
       padding-left:30px;
@@ -56,6 +57,28 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+  }
+}
+
+.content{
+  .jumbotron#people-queue{
+    margin-bottom: 0px;
+    border-radius: 0px;
+    background-image: url("../images/people-queue-banner.jpg");
+    height: 560px;
+
+    .slogan{
+      color: white;
+      float: left;
+      text-align: left;
+      margin-top: 240px;
+      h1{
+        font-size: 6em;
+      }
+      h2{
+        font-size: 4em;
+      }
+    }
   }
 }
 
