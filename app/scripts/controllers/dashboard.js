@@ -9,7 +9,7 @@ angular.module('dequeApp')
         var user = $firebaseAuth().$getAuth();
         var query = queueItemsRef.orderByChild("userid").equalTo(user.uid);
         $scope.queueItems = $firebaseArray(query);
-        $timeout(tick,  $scope.tickInterval);
+        $timeout(tick, $scope.tickInterval);
       }
       tick();
 
