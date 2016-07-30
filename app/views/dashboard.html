@@ -1,0 +1,122 @@
+<h1>Kiosk</h1>
+
+<div class="">
+	<form>
+		<div>
+			<input type="button" onclick="decrementCustomerOne()" value="-" />
+			<input type="text" id="customer" value="1"/>
+			<input type="button" onclick="incrementCustomerOne()" value="+" />
+		</div>
+	<br>
+		<div>
+			<input type="button" onclick="decrementWaitTen()" value="- 10" />
+			<input type="button" onclick="decrementWaitOne()" value="- 1" />
+			<input type="text" id="wait" value="10"/>
+			<input type="button" onclick="incrementWaitOne()" value="+ 1" />
+			<input type="button" onclick="incrementWaitTen()" value="+ 10" />
+		</div>
+	</form>
+</div>
+
+<div class="row">
+	<div id="queue-list" class="col-md-10 col-md-offset-1">
+		<h1>Request Queue</h1>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1">
+		<table class="table table-hover">
+
+			<thead>
+				<th>Name</th>
+				<th>People</th>
+				<th>Wait Time</th>
+				<th>Actions</th>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Nick</td>
+					<td>3</td>
+					<td>12</td>
+					<td><a>Update</a> | <a>Cancel</a></td>
+				</tr>
+
+				<tr>
+					<td>Vatsalya</td>
+					<td>6</td>
+					<td>20</td>
+					<td><a>Update</a> | <a>Cancel</a></td>
+				</tr>
+
+				<tr>
+					<td>Vince</td>
+					<td>2</td>
+					<td>7</td>
+					<td><a>Update</a> | <a>Cancel</a></td>
+				</tr>
+
+				<tr>
+					<td>Arvin</td>
+					<td>4</td>
+					<td>15</td>
+					<td><a>Update</a> | <a>Cancel</a></td>
+				</tr>
+
+			</tbody>
+			
+		</table>
+	</div>
+</div>
+
+<script>
+function incrementCustomerOne()
+	{
+		var value = parseInt(document.getElementById('customer').value, 10);
+		value++;
+		document.getElementById('customer').value = value;
+	}
+
+function decrementCustomerOne()
+	{
+		var value = parseInt(document.getElementById('customer').value, 10);
+		value--;
+		if (value > 0) {
+			document.getElementById('customer').value = value;	
+		}
+	}
+
+function incrementWaitOne()
+	{
+		var value = parseInt(document.getElementById('wait').value, 10);
+		value++;
+		document.getElementById('wait').value = value;
+	}
+
+function decrementWaitOne()
+	{
+		var value = parseInt(document.getElementById('wait').value, 10);
+		value--;
+		if (value > 0) {
+			document.getElementById('wait').value = value;	
+		}
+	}
+
+function incrementWaitTen()
+	{
+		var value = parseInt(document.getElementById('wait').value, 10);
+		value += 10;
+		document.getElementById('wait').value = value;
+	}
+
+function decrementWaitTen()
+	{
+		var value = parseInt(document.getElementById('wait').value, 10);
+		value -= 10;
+		if (value > 0) {
+			document.getElementById('wait').value = value;	
+		}
+	}
+</script>
