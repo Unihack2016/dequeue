@@ -5,7 +5,7 @@
 
 		<div>
 			<label for="name">Name</label>
-			<input type="text" id="name" value=""/>
+			<input type="text" id="name" value="" ng-model="customer.name"/>
 		</div>
 
 		<div>
@@ -26,7 +26,7 @@
 
 	<br>
 
-		<button ng-click="newRequest()" ng-disabled="form.$invalid || vm.dataLoading" class="btn">Create Request</button>
+		<button ng-click="addQueueItem()" ng-disabled="form.$invalid || vm.dataLoading" class="btn">Create Request</button>
 	</form>
 </div>
 

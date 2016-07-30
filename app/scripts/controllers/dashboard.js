@@ -12,6 +12,16 @@ angular.module('dequeApp')
         $timeout(tick,  $scope.tickInterval);
       }
       tick();
+
+      $scope.addQueueItem = function(){
+        var multiplier = 60000;
+        $scope.queueItems.$add({
+          endtime: Date.now() + (parseInt(document.getElementById('wait').value, 10) * multiplier),
+          name: $scope.customer.name,
+          number: parseInt(document.getElementById('customer').value, 10),
+          startime: Date.now(),
+          userid: $firebaseAuth().$getAuth().uid
+        });
+      };
     }
   ]);
-
