@@ -95,7 +95,8 @@
 						<td ng-controller="QRCtrl" ng-init="init(queueItem.$id)">
 							http://goo.gl/AQeRl9 | <img src="{{QRUrl}}" alt="" />
 						</td>
-						<td><a>Update</a> | <a>Cancel</a></td>
+						<td><a>Update</a></td>
+						<td><button ng-click="queueItems.$remove(queueItem)">Remove</button></td>
 					</tr>
 				</tbody>
 

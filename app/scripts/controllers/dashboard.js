@@ -24,5 +24,6 @@ angular.module('dequeApp')
           userid: $firebaseAuth().$getAuth().uid
         });
       };
+
     }
   ]);
