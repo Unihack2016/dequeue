@@ -31,6 +31,14 @@
 </div>
 
 <div class="row">
+	<div id="latest-request" class="col-md-10 col-md-offset-1">
+		<h1>Latest Request</h1>
+	</div>
+
+	<div ng-controller="DashboardCtrl">{{queueItem.shortUrl}}</div>
+</div>
+
+<div class="row">
 	<div id="queue-list" class="col-md-10 col-md-offset-1">
 		<h1>Request Queue</h1>
 	</div>
@@ -53,6 +61,7 @@
 					<td>{{queueItem.name}}</td>
 					<td>{{queueItem.number}}</td>
 					<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">{{duration}}</td>
+					<td ng-controller="DashboardCtrl">{{queueItem.shortUrl}}</td>
 					<td><a>Update</a> | <a>Cancel</a></td>
 				</tr>
 			</tbody>
