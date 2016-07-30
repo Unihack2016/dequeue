@@ -64,7 +64,11 @@ body {
   .jumbotron#people-queue{
     margin-bottom: 0px;
     border-radius: 0px;
-    background-image: url("../images/people-queue-banner.jpg");
+    background: {
+      image: url("../images/people-queue-banner.jpg");
+      size: cover;
+      repeat: no-repeat;
+    }
     height: 560px;
 
     .slogan{
