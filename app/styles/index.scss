@@ -7,6 +7,14 @@ $green: #10a28d;
 
 #kiosk-container{
   table{
+    .url{
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover{
+          color: $green;
+        }
+    }
+
     th, td{
       text-align: center;
       font-size: 1.2 * $normal-font-size;

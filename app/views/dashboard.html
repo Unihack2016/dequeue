@@ -92,8 +92,35 @@
 						<td ng-controller="DurationCtrl" ng-init="init(queueItem.starttime, queueItem.endtime)">
 							{{duration}}
 						</td>
-						<td ng-controller="QRCtrl" ng-init="init(queueItem.$id)">
-							http://goo.gl/AQeRl9 | <img ng-src="{{QRUrl}}"/>
+						<td>
+							<button type="button" class="btn url modal-toggler" data-toggle="modal" data-target="#modal-{{queueItem.$id}}">
+								Show QR code
+							</button>
+							<!-- <div class="row qrcode">
+								<img ng-src="{{QRUrl}}"/>
+							</div> -->
+							<!-- Modal -->
+							<div class="modal fade" id="modal-{{queueItem.$id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">Scan this QR Code!</h4>
+							      </div>
+							      <div class="modal-body" ng-controller="QRCtrl" ng-init="init(queueItem.$id)" style="padding: 20px 0px;">
+											<p>
+												<img ng-src="{{QRUrl}}"/>
+											</p>
+											<p style="margin: 10px 0px;">
+												http://goo.gl/AQeRl9
+											</p>
+							      </div>
+							      <div class="modal-footer" style="text-align: center;">
+											<button class="btn" data-dismiss="modal">Close</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
 						</td>
 						<td>
 							<button class="update-btn">Update</button>
@@ -101,7 +128,6 @@
 						</td>
 					</tr>
 				</tbody>
-
 			</table>
 		</div>
 	</div>
