@@ -2,17 +2,12 @@
  * Created by vatsalyagoel on 30/07/2016.
  */
 angular.module('dequeApp')
-  .controller('DashboardCtrl', ["$scope","$firebaseAuth", "$firebaseArray", "$timeout", function ($scope, $firebaseAuth, $firebaseArray, $timeout) {
-      $scope.tickInterval = 30000;
-    $scope.now = Date.now();
-      var tick = function() {
-        var queueItemsRef = firebase.database().ref().child("queueitems");
-        var user = $firebaseAuth().$getAuth();
-        var query = queueItemsRef.orderByChild("userid").equalTo(user.uid);
-        $scope.queueItems = $firebaseArray(query);
-        $timeout(tick, $scope.tickInterval);
-      }
-      tick();
+  .controller('DashboardCtrl', ["$scope","$firebaseAuth", "$firebaseArray", function ($scope, $firebaseAuth, $firebaseArray) {
+      $scope.now = Date.now();
+      var queueItemsRef = firebase.database().ref().child("queueitems");
+      var user = $firebaseAuth().$getAuth();
+      var query = queueItemsRef.orderByChild("userid").equalTo(user.uid);
+      $scope.queueItems = $firebaseArray(query);
 
       $scope.addQueueItem = function(){
         var multiplier = 60000;
@@ -24,6 +19,5 @@ angular.module('dequeApp')
           userid: $firebaseAuth().$getAuth().uid
         });
       };
-
     }
   ]);
