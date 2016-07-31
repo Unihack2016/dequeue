@@ -26,7 +26,7 @@ angular.module('dequeApp')
       {
         var minutes = Math.floor(duration / 60);
         var seconds = duration % 60;
-        $scope.duration = str_pad_left(minutes,'0',3)+':'+str_pad_left(seconds,'0',2);
+        $scope.duration = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
         $timeout(tick, $scope.tickInterval);
       }
     }
